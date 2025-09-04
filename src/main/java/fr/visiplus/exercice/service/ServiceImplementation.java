@@ -4,14 +4,11 @@ import java.util.List;
 
 import fr.visiplus.exercice.User;
 
-public class ServiceImplementation implements IService {
+public class ServiceImplementation implements UserService {
 
-	public String getUsername() throws Exception {
-		throw new Exception();
-	}
-
-	public List<User> sortUsersByUsername(List<User> users) throws Exception {
-		return UserRepository.sortUsers(users);
-	}
+        @Override
+        public List<User> sortUsersByUsername(List<User> users) {
+                return UserRepository.sortUsers(users);
+        }
 
 }

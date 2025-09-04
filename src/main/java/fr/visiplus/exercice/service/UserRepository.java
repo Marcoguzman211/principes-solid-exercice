@@ -8,9 +8,9 @@ import fr.visiplus.exercice.UserComparator;
 
 public class UserRepository {
 
-	public static List<User> sortUsers(List<User> users) throws Exception {
-		Collections.sort(users, new UserComparator());		
-		return users;
-	}
-	
+        public static List<User> sortUsers(List<User> users) {
+                Collections.sort(users, new UserComparator());
+                return users;
+        }
+
 }
