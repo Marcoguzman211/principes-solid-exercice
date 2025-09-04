@@ -1,16 +1,19 @@
 package fr.visiplus.exercice.service;
 
-import java.util.Collections;
 import java.util.List;
 
 import fr.visiplus.exercice.User;
-import fr.visiplus.exercice.UserComparator;
 
-public class UserRepository {
+/**
+ * Repository abstraction for {@link User} operations.
+ */
+public interface UserRepository {
 
-        public static List<User> sortUsers(List<User> users) {
-                Collections.sort(users, new UserComparator());
-                return users;
-        }
-
+    /**
+     * Sorts the given list of users using the repository's configured strategy.
+     *
+     * @param users users to sort
+     * @return sorted users
+     */
+    List<User> sortUsers(List<User> users);
 }
