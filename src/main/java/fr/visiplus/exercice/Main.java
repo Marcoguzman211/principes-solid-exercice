@@ -3,20 +3,25 @@ package fr.visiplus.exercice;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.visiplus.exercice.service.InMemoryUserRepository;
 import fr.visiplus.exercice.service.ServiceImplementation;
+import fr.visiplus.exercice.service.UserRepository;
+import fr.visiplus.exercice.service.UserService;
 
 public class Main {
 
-	public static void main(String[] args) throws Exception {
+        public static void main(String[] args) throws Exception {
 
-		ServiceImplementation s = new ServiceImplementation();
-		
-		List<User> list = new ArrayList<User>();
-		list.add(new User("albert", "martin", "martina", "noidea"));
-		list.add(new User("gerard", "charles", "charlesg", "idea"));
+                UserRepository repository = new InMemoryUserRepository();
+                UserService service = new ServiceImplementation(repository);
 
-		s.sortUsersByUsername(list).forEach(System.out::println);
+                List<User> list = new ArrayList<User>();
+                list.add(new User("albert", "martin", "martina", "noidea"));
+                list.add(new User("gerard", "charles", "charlesg", "idea"));
 
-	}
+                service.sortUsersByUsername(list).forEach(System.out::println);
+
+        }
 
 }
+
